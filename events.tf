@@ -14,7 +14,7 @@ resource "aws_cloudtrail" "login_audit_trail" {
   #cloud_watch_logs_group_arn    = join("", concat(["${aws_cloudwatch_log_group.CloudTrailEvents.arn}", ":*"]))
   #cloud_watch_logs_group_arn = "arn:aws:logs:ca-central-1:273645826566:log-group:CloudTrailEvents:*"
   cloud_watch_logs_role_arn = aws_iam_role.cloudtrail_role.arn
-  kms_key_id = aws_kms_key.rootalerts_kms.arn
+  kms_key_id                = aws_kms_key.rootalerts_kms.arn
   tags                      = var.tags
 
   event_selector {
@@ -27,7 +27,7 @@ resource "aws_cloudtrail" "login_audit_trail" {
 
 #creating CloudWatch Log Group
 resource "aws_cloudwatch_log_group" "CloudTrailEvents" {
-  name = var.cloudtrail_name
+  name       = var.cloudtrail_name
   kms_key_id = aws_kms_key.rootalerts_kms.arn
 }
 

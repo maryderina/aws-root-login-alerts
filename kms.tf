@@ -1,6 +1,6 @@
 resource "aws_kms_key" "rootalerts_kms" {
-  description         = "root login alerts"
-  enable_key_rotation = true
+  description             = "root login alerts"
+  enable_key_rotation     = true
   deletion_window_in_days = var.kms_deletion_window
 }
 

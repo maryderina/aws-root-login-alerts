@@ -1,4 +1,16 @@
+variable "AWS_ACCESS_KEY" {
+  description = "AWS Access Key ID"
+  default     = ""
+}
+
+variable "AWS_SECRET_KEY" {
+  description = "AWS Secret Access Key"
+  default     = ""
+}
+
+
 variable "aws_region" { default = "ca-central-1" }
+
 
 variable "bucket_name" {
   default = "cloudtrail-s3-mdkd"
@@ -54,7 +66,7 @@ variable "logbucket" {
 
 variable "kms_deletion_window" {
   default = 7
-  type = number
+  type    = number
 }
 
 variable "account_id" {

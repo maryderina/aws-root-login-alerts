@@ -1,19 +1,19 @@
 #creating S3 bucket for storing cloutrail logs
 resource "aws_s3_bucket" "alert_s3_bucket" {
-  bucket = var.bucket_name
+  bucket        = var.bucket_name
   force_destroy = true
-  tags = var.tags
+  tags          = var.tags
 }
 
 resource "aws_s3_bucket_server_side_encryption_configuration" "kms-s3" {
   bucket = aws_s3_bucket.alert_s3_bucket.id
-    rule {
-      apply_server_side_encryption_by_default {
-        kms_master_key_id = aws_kms_key.rootalerts_kms.arn
-        sse_algorithm     = "aws:kms"
-      }
+  rule {
+    apply_server_side_encryption_by_default {
+      kms_master_key_id = aws_kms_key.rootalerts_kms.arn
+      sse_algorithm     = "aws:kms"
     }
   }
+}
 
 
 resource "aws_s3_bucket_versioning" "versioning_enable" {
