@@ -9,13 +9,10 @@ resource "aws_cloudtrail" "login_audit_trail" {
   include_global_service_events = true
   enable_logging                = true
   enable_log_file_validation    = true
-  #sns_topic_name                = aws_sns_topic.root_access_alert.arn
-  cloud_watch_logs_group_arn = "${aws_cloudwatch_log_group.CloudTrailEvents.arn}:*"
-  #cloud_watch_logs_group_arn    = join("", concat(["${aws_cloudwatch_log_group.CloudTrailEvents.arn}", ":*"]))
-  #cloud_watch_logs_group_arn = "arn:aws:logs:ca-central-1:273645826566:log-group:CloudTrailEvents:*"
-  cloud_watch_logs_role_arn = aws_iam_role.cloudtrail_role.arn
-  kms_key_id                = aws_kms_key.rootalerts_kms.arn
-  tags                      = var.tags
+  cloud_watch_logs_group_arn    = "${aws_cloudwatch_log_group.CloudTrailEvents.arn}:*"
+  cloud_watch_logs_role_arn     = aws_iam_role.cloudtrail_role.arn
+  kms_key_id                    = aws_kms_key.rootalerts_kms.arn
+  tags                          = var.tags
 
   event_selector {
     read_write_type           = "All"
@@ -77,9 +74,6 @@ EOF
 #Enabling SNS for alert notifications. Manual subscription is required for receiving the alerts. Check Email
 resource "aws_sns_topic" "root_access_alert" {
   name = var.login_notification
-  #provisioner "local-exec" {
-  #  command = "aws sns subscribe --region ${var.aws_region} --topic-arn ${self.arn} --protocol email --notification-endpoint ${var.notificationemail}"
-  #  }
 }
 
 resource "aws_sns_topic_subscription" "user_login_notification_subscription" {
