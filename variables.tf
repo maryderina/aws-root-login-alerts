@@ -45,7 +45,7 @@ variable "namespace" {
 }
 variable "notificationemail" {
   type    = list(string)
-  default = ["derinkd@proton.me"]
+  default = ["email1", "email2"]
 }
 
 variable "logbucket" {
@@ -59,7 +59,7 @@ variable "kms_deletion_window" {
 
 variable "account_id" {
   description = "The account ID of the AWS account. Defaults to sandbox."
-  default     = "273645826566"
+  default     = "accountID"
 }
 
 
