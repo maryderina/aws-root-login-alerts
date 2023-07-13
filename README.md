@@ -25,6 +25,7 @@ Navigate to the project directory:
 2. Initialize the terraform working directory:
   ```shell
   terraform init
+
 3. Modify the variables in the variables.tf file:
 Update the notification_email variable with your email address.
 Optionally, modify other variables to customize the setup according to your requirements. Refer to the comments in the variables.tf file for more information.
