@@ -19,26 +19,27 @@ Follow the steps below to use this Terraform script:
    git clone https://github.com/maryderina/aws-root-login-alerts.git
 
 Navigate to the project directory:
-   ```shell
-   cd aws-root-login-alerts
+  ```shell
+  cd aws-root-login-alerts
+
 2. Initialize the terraform working directory:
-   ```shell
-   terraform init
+  ```shell
+  terraform init
 3. Modify the variables in the variables.tf file:
 Update the notification_email variable with your email address.
 Optionally, modify other variables to customize the setup according to your requirements. Refer to the comments in the variables.tf file for more information.
 
-4.Review the changes that will be applied:
+4. Review the changes that will be applied:
   ```shell
   terraform plan -out plan.out
 
-5.Apply the Terraform changes to create the AWS resources:
+5. Apply the Terraform changes to create the AWS resources:
   ```shell
   terraform apply "plan.out"
 
-6.Verify the setup and test by logging into the AWS account as the root user. You should receive an email notification at the specified email address.
+6. Verify the setup and test by logging into the AWS account as the root user. You should receive an email notification at the specified email address.
 
-7.If you want to tear down the resources and remove the alert mechanism:
+7. If you want to tear down the resources and remove the alert mechanism:
   ```shell
   terraform destroy
 
