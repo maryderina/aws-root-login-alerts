@@ -50,7 +50,7 @@ Optionally, modify other variables to customize the setup according to your requ
   terraform destroy
   ```
 
-##Customization
+## Customization
 You can customize the behavior of this script by modifying the variables in the variables.tf file. Here are some variables you may consider changing:
 access_key(#Don't put these in your code! Use environment variables or a vault for best practice)
 secret_key(#Don't put these in your code! Use environment variables or a vault for best practice)
@@ -59,7 +59,7 @@ tags
 notificationemail
 accountid
 
-##Contributing
+## Contributing
 Contributions are welcome! If you find any issues or want to enhance the functionality, feel free to submit a pull request.
 
 
