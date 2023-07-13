@@ -19,7 +19,7 @@ Follow the steps below to use this Terraform script:
    git clone https://github.com/maryderina/aws-root-login-alerts.git
    ```
 
-Navigate to the project directory:
+  Navigate to the project directory:
   ```shell
   cd aws-root-login-alerts
   ```
